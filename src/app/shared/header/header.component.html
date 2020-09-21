@@ -1,0 +1,56 @@
+<!-- header -->
+<header class="site-head" id="site-head">
+    <ul class="list-unstyled left-elems">
+        <!-- nav trigger/collapse -->
+        <li>
+            <a href="javascript:;" class="nav-trigger ion ion-drag"></a>
+        </li>
+        <!-- #end nav-trigger -->
+
+        <!-- Search box -->
+    
+
+        <!-- site-logo for mobile nav -->
+        <!--<li>
+            <div class="site-logo visible-xs">
+                <a href="javascript:;" class="text-uppercase h3">
+                    <img src="./assets/images/logo.png" alt="">
+                </a>
+            </div>
+        </li>--> <!-- #end site-logo -->
+        
+        <li class="text-address">
+            <div class="info1">
+                <i class="fa fa-map-marker"></i><span>  13461 NW 19 Lane, Miami FL 33182 | Buzon PR-{{user.n_buzon}}</span>
+            </div>
+        </li> 
+       <!-- notification drop -->
+        	<!-- #end notification drop -->
+
+    </ul>
+    
+    
+
+    <ul class="list-unstyled right-elems">
+        <!-- profile drop -->
+        <li class="profile-drop hidden-xs dropdown">
+            <a href="javascript:;" data-toggle="dropdown">
+                <img [src]="this.user.img | imagen"alt="admin-pic">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a  [routerLink]="['/perfil']"><span class="ion ion-person">&nbsp;&nbsp;</span>Perfil</a></li>
+               <!-- <li><a href="javascript:;"><span class="ion ion-settings">&nbsp;&nbsp;</span>Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:;"><span class="ion ion-lock-combination">&nbsp;&nbsp;</span>Lock Screen</a></li>-->
+                <li><a (click)="logOut()"><span class="ion ion-power">&nbsp;&nbsp;</span>Logout</a></li>
+            </ul>
+        </li>
+        <!-- #end profile-drop -->
+
+        <!-- sidebar contact -->
+        
+
+    </ul>
+
+</header>
+<!-- #end header -->

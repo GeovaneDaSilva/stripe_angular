@@ -1,0 +1,114 @@
+
+<div class="row">
+    <!-- dashboard header -->
+    <div class="col-md-12">
+        <div class="dash-head clearfix mt15 mb20">
+            <div class="left">
+                <h4 class="mb5 text-light">Welcome to SendToPuertoRico</h4>
+                <p class="small"><strong>Envie su paquete con nosotros</strong> Registra su buzon ahora</p>
+            </div>
+            <div class="right">
+                <h4 class="mb5 text-light"></h4>
+                <button type="button" [routerLink]="[ '/dashboard']"
+                class="btn btn-primary btn-icon-inline waves-effect"><i class="fa  fa-chevron-left"></i>Back</button>
+            </div>
+            <div class="right mt10">
+            </div>
+        </div>
+    </div>
+</div> <!-- #end row -->
+
+<div class="row">
+   <div class="col-md-6">
+
+    <div *ngIf="alert === false">
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div>Su informacion no es valida! <br>
+                Es posible que su correo electrónico ya exista en nuestra base de datos.</div>
+        </div>
+
+    </div>
+
+    <div *ngIf="alert === true">
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div>Gracias por registrarse con Send To Puerto Rico, Su dirección asignada es: <p>
+                13461 NW 19 Lane <br>
+                Miami FL 33182 <br>
+                Es importante que el número de buzón se encuentre seguido del nombre para efectos de identificar el paquete.
+                Su número de buzón es: <b>{{this.buzonOk.n_buzon}}</b>
+            </p></div>
+        </div>
+
+    </div>
+
+    <form role="form" (ngSubmit)="saveBuzon( f.value )" #f="ngForm"
+     class="form-horizontal" action="javascript:;"> <!-- form horizontal acts as a row -->
+        <!-- normal control -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Nombre</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="buzon.name" name="name" required
+                type="text" class="form-control">
+            </div>
+        </div>
+    
+        <!-- with hint -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Email</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="buzon.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+                type="text" class="form-control" placeholder="info@sendtopuertorico.com">
+            </div>
+        </div>
+        
+        <!-- passowrd control -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Telefono</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="buzon.phone" name="phone" required
+                type="number" class="form-control" placeholder="7876574891">
+            </div>
+        </div>
+         <!-- passowrd control -->
+         <div class="form-group">
+            <label class="col-md-3 control-label">Direccion</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="buzon.address" name="address" required
+                type="text" class="form-control" placeholder="calle...">
+            </div>
+        </div>
+    
+        
+        <!-- textarea control -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Mensaje</label>
+            <div class="col-md-9">
+                <textarea [(ngModel)]="buzon.message" name="message"
+                rows="5" class="form-control resize-v" placeholder="Message here"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Terminos</label>
+            <div class="col-md-9">
+                <label class="ui-checkbox-inline">
+                    <input [(ngModel)]="buzon.termino" name="termino" required
+                    type="checkbox" checked="" value="buzon.termino"> 
+                    <span> Confirmo haber leido los terminos y condiciones y acepto los mismos como condicion para obtener un casillero en Miami, FL a traves de Sendtopuertorico.com.</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="clearfix right">
+            <button [disabled]="f.invalid"
+             class="btn btn-primary mr5 waves-effect" type="submit" >Registrar</button>
+        </div>
+
+    </form>
+   </div>
+</div>

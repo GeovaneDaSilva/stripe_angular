@@ -1,0 +1,86 @@
+<body id="app" class="app off-canvas body-full bg_login">
+	
+
+	
+	<!-- main-container -->
+	<div class="main-container clearfix bg_login">
+		
+		<!-- content-here -->
+		<div class="content-container" id="content">
+			<div class="page page-auth">
+				<div class="auth-container">
+
+					<div class="form-head mb20">
+						<h1 class="site-logo h2 mb5 mt5 text-center text-uppercase text-bold"><img src="./assets/images/ionProperty-ico.png" alt="" class="logo_login"></h1>
+					</div>
+
+					<div class="form-container">
+						<form (ngSubmit)="login( f )" #f="ngForm"
+						class="form-horizontal" action="javascript:;">
+							<div class="md-input-container md-float-label">
+								<input [(ngModel)]="user.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+								type="email" class="md-input">
+								<label>Correo electrónico</label>
+							</div>
+
+							<div class="md-input-container md-float-label">
+								<input [(ngModel)]="user.password" name="Contraseña" required
+								type="password" class="md-input">
+								<label>Contraseña</label>
+							</div>
+
+							
+							<div class="btn-group btn-group-justified mb15">
+								<div class="btn-group">
+									<button type="submit" class="btn btn-success" [disabled]="f.invalid">Login</button>
+								</div>
+							</div> 
+							<div class="clearfix text-center small">
+								<p>¿No tienes una cuenta? <a [routerLink]="['/register']">Crear cuenta</a></p>
+							</div>
+						</form>
+
+						<div *ngIf="alert === false">
+							<div class="alert alert-danger">
+								<button type="button" class="close" data-dismiss="alert">
+									<span aria-hidden="true">×</span>
+								</button>
+								<div>Su informacion no es valida!</div>
+							</div>
+
+						</div>
+
+						<div *ngIf="alert === true">
+							<div class="alert alert-success">
+								<button type="button" class="close" data-dismiss="alert">
+									<span aria-hidden="true">×</span>
+								</button>
+								<div>Bienvenido a SendToPuertoRico!</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div> <!-- #end signin-container -->
+			</div>
+
+
+
+		</div> 
+		<!-- #end content-container -->
+
+	</div> <!-- #end main-container -->
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+</body>

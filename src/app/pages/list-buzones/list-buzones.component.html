@@ -1,0 +1,77 @@
+
+<div class="col-md-12">
+    <app-jumbotron></app-jumbotron>
+
+    <div class="panel panel-lined table-responsive panel-hovered mb20 data-table" style="padding-bottom: 20px">
+        <div class="panel-heading">Lista Buzones</div>
+        <div class="panel-body">
+            <div class="small text-bold left mt5">
+                Show&nbsp;
+                <select class="lengthSelect">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select> 
+                &nbsp;entries
+            </div>
+
+            <form class="form-horizontal right col-lg-4" action="javascript:;">
+                <input [(ngModel)]="filterPost" name="filterPost"
+                 type="text" class="form-control input-sm searchInput" placeholder="Buscar por el nombre">
+            </form>
+        </div>
+    <!-- data table -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Buzon
+                    <div class="th">
+                        <i class="fa fa-caret-up icon-up"></i>
+                        <i class="fa fa-caret-down icon-down"></i>
+                    </div>
+                </th>
+                <th>
+                    Nombre
+                    <div class="th">
+                        <i class="fa fa-caret-up icon-up"></i>
+                        <i class="fa fa-caret-down icon-down"></i>
+                    </div>
+                </th>
+                <th>
+                    Telefono
+                    <div class="th">
+                        <i class="fa fa-caret-up icon-up"></i>
+                        <i class="fa fa-caret-down icon-down"></i>
+                    </div>
+                </th>
+                <th>
+                    Email
+                    <div class="th">
+                        <i class="fa fa-caret-up icon-up"></i>
+                        <i class="fa fa-caret-down icon-down"></i>
+                    </div>
+                </th>
+                <th>
+                    Direccion
+                    <div class="th">
+                        <i class="fa fa-caret-up icon-up"></i>
+                        <i class="fa fa-caret-down icon-down"></i>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr role="row" class="odd" *ngFor="let buzon of buzones | filter:filterPost"> 
+                <td  class="sorting_1">{{buzon.id_buzon}}</td>
+                <td >{{buzon.nombre}}</td>
+                <td >{{buzon.telefono}}</td>
+                <td >{{buzon.email}}</td>
+                <td >{{buzon.direccion}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- #end data table -->	
+    
+</div>

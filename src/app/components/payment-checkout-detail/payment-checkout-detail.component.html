@@ -1,0 +1,163 @@
+<div class="container-fluid">
+  <div class="container">
+
+<div class="page page-invoice">
+
+  <div class="page-wrap">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Invoice Start -->
+        <div class="invoice-wrap">
+          <div class="clearfix invoice-head">
+            <h3 class="brand-logo text-uppercase text-bold left mt15">
+              <span class="text"><img src="./assets/images/ionProperty-ico.png" alt="" class="logo_login"></span>
+            </h3>
+            <div *ngIf="this.status_payment == true">
+              <h3><label class="label label-success right">Pago</label></h3>
+
+            </div>
+            <div *ngIf="this.status_payment == false">
+              <h3><label class="label label-color_send right">Pendiente</label></h3>
+
+            </div>
+          </div>
+          
+          <div class="clearfix invoice-subhead mb20">
+            <div class="group clearfix left">
+              <p class="text-bold mb5">Numero de Buzon <span class="primary">PR-{{this.n_buzon}}</span></p>
+              <p class="small">Fecha: {{this.package.date_create | date:'medium'}}</p>
+            </div>
+
+            <div class="group clearfix right">
+              <button  (click)="print();"  class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Para imprimir el archivo correctamente, cambie la configuración de su impresora de Vertical ('Portrait') a Horizontal ('Landscape')" ><i class="ion ion-printer"></i>Print</button>
+            </div>
+          </div>
+
+
+          <div class="row mb30">
+            <div class="col-md-6">
+              <div class="address-wrap">
+
+                <address>
+                  <strong>Send To Puerto Rico LLC</strong><br>
+                  13461 NW 19th Lane<br>
+                  Miami FL 33182<br>
+                  <abbr title="Phone">Ph:</abbr> (787) 981-1421
+                </address>
+              </div>
+              
+            </div>
+
+            <div class="col-md-6">
+              <div class="address-wrap">
+
+                <address>
+                  <strong>{{this.user.nombre}}</strong><br>
+                  {{this.user.address}}<br>
+                  <abbr title="Phone">Ph:</abbr> {{this.user.phone}}
+                </address>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- invoice table -->
+          <table class="table table-bordered invoice-table mb30">
+            <thead>
+              <tr>
+                <th >Almacén</th>
+                <th>Descripcion</th>
+                <th>Parte de: (Vendedor)</th>
+                <th>Pesos y dimensiones</th>
+                <th>Número de rastreo</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td scope="row">{{package.store}}</td>
+                <td>{{package.description}}</td>
+                <td>{{this.package.saller}}</td>
+                <td> Largura <span>{{this.package.l}} * </span> Ancho * <span>{{this.package.w}} * </span>
+                  Altura * <span> {{this.package.h}} </span> Peso * <span> {{this.package.h}}</span></td>
+                  <td scope="col">{{this.package.track_number}}</td>
+              </tr>
+
+             
+            </tbody>
+          </table>
+
+
+          <!-- #end invoice table -->
+
+
+          <div class="clearfix text-right total-sum mb30">
+            <h3 class="text-uppercase text-bold">Total</h3>
+            <h4 class="sum">{{package.price | currency:'USD'}}</h4>
+
+             <div *ngIf="this.status_payment ==false">
+            <button type="button" class="btn btn-success right" data-toggle="modal" data-target="#exampleModal">
+              Pagar
+            </button>
+          </div>
+        </div>
+          <p class="text-center small text-info">{{package.nota}}</p>
+
+        </div>
+
+      </div> <!-- Invoice End -->
+    </div> <!-- #end row -->
+
+  </div> <!-- #end page-wrap -->
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+          <input type="text" formControlName="name" placeholder="Nombre igual a la tarjeta">
+          <ngx-stripe-card
+            [options]="cardOptions"
+            [elementsOptions]="elementsOptions"
+          ></ngx-stripe-card>
+
+          <div class="modal-footer">
+
+            <div *ngIf="this.pay === true">
+							<div class="alert alert-success">
+								<button type="button" class="close" data-dismiss="alert">
+									<span aria-hidden="true">×</span>
+								</button>
+								<div>Gracias por su pago!!!</div>
+							</div>
+
+						</div>
+
+            <div *ngIf="!this.pay === true">
+              
+
+              <button type="submit" class="btn btn-success">Pagar</button>
+              <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>

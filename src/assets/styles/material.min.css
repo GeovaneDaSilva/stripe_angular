@@ -1,0 +1,720 @@
+/** General Styles
+====================
+*/
+[tabindex='-1']:focus {
+  outline: none;
+}
+.inset {
+  padding: 10px;
+}
+button.md-no-style {
+  font-weight: normal;
+  background-color: inherit;
+  text-align: left;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.md-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.md-shadow-bottom-z-1,
+.md-button.md-raised:not([disabled]),
+.md-button.md-fab,
+.md-button.md-raised.md-focused:not([disabled]),
+.md-button.md-fab.md-focused:not([disabled]) {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.md-shadow-bottom-z-2,
+.md-button.md-raised:not([disabled]):active,
+.md-button.md-fab:not([disabled]):active {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.md-shadow-animated.md-shadow {
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/**
+ * Whiteframe
+ * =========================
+ */
+.md-whiteframe-z1 {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.md-whiteframe-z2 {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.md-whiteframe-z3 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.md-whiteframe-z4 {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.md-whiteframe-z5 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+/** 
+ * MD Buttons
+ * ===========================
+ */
+.md-button {
+  box-sizing: border-box;
+  color: currentColor;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  outline: none;
+  border: 0;
+  display: inline-block;
+  padding: 0 6px;
+  margin: 6px 8px;
+  line-height: 36px;
+  min-height: 36px;
+  background: transparent;
+  white-space: nowrap;
+  min-width: 88px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/**
+ * Position a FAB button.
+ */
+.md-button *,
+.md-button *:before,
+.md-button *:after {
+  box-sizing: border-box;
+}
+.md-button:focus {
+  outline: none;
+}
+.md-button:hover,
+.md-button:focus {
+  text-decoration: none;
+}
+.md-button.ng-hide,
+.md-button.ng-leave {
+  transition: none;
+}
+.md-button.md-cornered {
+  border-radius: 0;
+}
+.md-button.md-icon {
+  padding: 0;
+  background: none;
+}
+.md-button.md-icon-button {
+  margin: 0 6px;
+  height: 48px;
+  min-width: 0;
+  line-height: 48px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 48px;
+}
+.md-button.md-fab {
+  z-index: 20;
+  line-height: 56px;
+  min-width: 0;
+  width: 56px;
+  height: 56px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-clip: padding-box;
+  overflow: hidden;
+  transition: 0.2s linear;
+  transition-property: background-color, box-shadow;
+}
+.md-button.md-fab.md-fab-bottom-right {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: absolute;
+}
+.md-button.md-fab.md-fab-bottom-left {
+  top: auto;
+  right: auto;
+  bottom: 20px;
+  left: 20px;
+  position: absolute;
+}
+.md-button.md-fab.md-fab-top-right {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+  position: absolute;
+}
+.md-button.md-fab.md-fab-top-left {
+  top: 20px;
+  right: auto;
+  bottom: auto;
+  left: 20px;
+  position: absolute;
+}
+.md-button.md-fab .md-ripple-container {
+  border-radius: 50%;
+  background-clip: padding-box;
+  overflow: hidden;
+  -webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC');
+}
+.md-button.md-fab md-icon {
+  margin-top: 0;
+}
+.md-button.md-fab.md-mini {
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+}
+.md-button-group {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+}
+.md-button-group > .md-button {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: block;
+  overflow: hidden;
+  width: 0;
+  border-width: 1px 0px 1px 1px;
+  border-radius: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.md-button-group > .md-button:first-child {
+  border-radius: 2px 0px 0px 2px;
+}
+.md-button-group > .md-button:last-child {
+  border-right-width: 1px;
+  border-radius: 0px 2px 2px 0px;
+}
+@media screen and (-ms-high-contrast: active) {
+  .md-button.md-raised,
+  .md-button.md-fab {
+    border: 1px solid #fff;
+  }
+}
+/** 
+ * Md Buttons (Theme - default)
+ ================================
+ */
+.md-button {
+  border-radius: 3px;
+}
+.md-button:not([disabled]).md-focused,
+.md-button:not([disabled]):hover {
+  background-color: rgba(158, 158, 158, 0.2);
+}
+.md-button:not([disabled]).md-icon-button:hover {
+  background-color: transparent;
+}
+.md-button.md-raised {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fafafa;
+}
+.md-button.md-raised:not([disabled]) .md-icon {
+  color: rgba(0, 0, 0, 0.87);
+}
+.md-button.md-raised:not([disabled]):hover {
+  background-color: #fafafa;
+}
+.md-button.md-raised:not([disabled]).md-focused {
+  background-color: #eeeeee;
+}
+.md-button.md-raised[disabled],
+.md-button.md-fab[disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.md-button[disabled] {
+  background-color: transparent;
+}
+/** md-primary buttons */
+.md-button.md-primary {
+  color: #3f51b5;
+}
+.md-button.md-primary.md-raised:not([disabled]),
+.md-button.md-primary.md-fab:not([disabled]) {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #3f51b5;
+}
+.md-button.md-primary.md-raised:not([disabled]) md-icon,
+.md-button.md-primary.md-fab:not([disabled]) md-icon {
+  color: rgba(255, 255, 255, 0.87);
+}
+.md-button.md-primary.md-raised:not([disabled]):hover,
+.md-button.md-primary.md-fab:not([disabled]):hover {
+  background-color: #3f51b5;
+}
+.md-button.md-primary.md-raised:not([disabled]).md-focused,
+.md-button.md-primary.md-fab:not([disabled]).md-focused {
+  background-color: #3949ab;
+}
+.md-button.md-primary:not([disabled]) md-icon {
+  color: #3f51b5;
+}
+/** md-fab buttons */
+.md-button.md-fab {
+  border-radius: 50%;
+  background-color: #ff4081;
+  color: #ffffff;
+}
+.md-button.md-fab md-icon {
+  color: #ffffff;
+}
+.md-button.md-fab:not([disabled]):hover {
+  background-color: #ff4081;
+}
+.md-button.md-fab:not([disabled]).md-focused {
+  background-color: #c51162;
+}
+.md-button.md-fab {
+  border-radius: 50%;
+  background-color: #ff4081;
+  color: #ffffff;
+}
+.md-button.md-fab:not([disabled]) .md-icon {
+  color: #ffffff;
+}
+.md-button.md-fab:not([disabled]):hover {
+  background-color: #ff4081;
+}
+.md-button.md-fab:not([disabled]).md-focused {
+  background-color: #c51162;
+}
+.md-button.md-accent {
+  color: #ff4081;
+}
+.md-button.md-accent.md-raised,
+.md-button.md-accent.md-fab {
+  color: #ffffff;
+  background-color: #ff4081;
+}
+.md-button.md-accent.md-raised:not([disabled]) md-icon,
+.md-button.md-accent.md-fab:not([disabled]) md-icon {
+  color: #ffffff;
+}
+.md-button.md-accent.md-raised:not([disabled]):hover,
+.md-button.md-accent.md-fab:not([disabled]):hover {
+  background-color: #ff4081;
+}
+.md-button.md-accent.md-raised:not([disabled]).md-focused,
+.md-button.md-accent.md-fab:not([disabled]).md-focused {
+  background-color: #c2185b;
+}
+.md-button.md-accent:not([disabled]) md-icon {
+  color: #ff4081;
+}
+.md-button[disabled],
+.md-button.md-raised.md-primary[disabled],
+.md-button.md-raised[disabled],
+.md-button.md-fab[disabled],
+.md-button.md-accent[disabled],
+.md-button.md-warn[disabled] {
+  color: rgba(0, 0, 0, 0.26);
+  cursor: not-allowed;
+}
+.md-button[disabled] md-icon,
+.md-button.md-raised[disabled] md-icon,
+.md-button.md-fab[disabled] md-icon,
+.md-button.md-accent[disabled] md-icon,
+.md-button.md-warn[disabled] md-icon {
+  color: rgba(0, 0, 0, 0.26);
+}
+/** md-warn fabs */
+.md-button.md-warn {
+  color: #f44336;
+}
+.md-button.md-warn.md-raised,
+.md-button.md-warn.md-fab {
+  color: #ffffff;
+  background-color: #f44336;
+}
+.md-button.md-warn.md-raised:not([disabled]) md-icon,
+.md-button.md-warn.md-fab:not([disabled]) md-icon {
+  color: #ffffff;
+}
+.md-button.md-warn.md-raised:not([disabled]):hover,
+.md-button.md-warn.md-fab:not([disabled]):hover {
+  background-color: #f44336;
+}
+.md-button.md-warn.md-raised:not([disabled]).md-focused,
+.md-button.md-warn.md-fab:not([disabled]).md-focused {
+  background-color: #d32f2f;
+}
+.md-button.md-warn:not([disabled]) md-icon {
+  color: #f44336;
+}
+/**
+ * Md Checkbox
+ * ============================
+ */
+.md-checkbox,
+.md-radio {
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+}
+.md-checkbox label.md-checkbox-inline,
+.md-radio label.md-checkbox-inline {
+  margin-right: 8px;
+}
+.md-checkbox label,
+.md-radio label {
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+		position: static;
+}
+.md-checkbox label > input,
+.md-radio label > input {
+  cursor: pointer;
+  display: none;
+  margin-left: -15px;
+}
+.md-checkbox label > input[disabled] + span,
+.md-checkbox label > input[readonly] + span,
+.md-checkbox label > input[disabled] + i,
+.md-checkbox label > input[readonly] + i,
+.md-radio label > input[disabled] + span,
+.md-radio label > input[readonly] + span,
+.md-radio label > input[disabled] + i,
+.md-radio label > input[readonly] + i {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.md-checkbox label > span,
+.md-checkbox label > i,
+.md-radio label > span,
+.md-radio label > i {
+  position: relative;
+  padding-left: 28px;
+  padding-top: 2.5px;
+}
+.md-checkbox label > span:before,
+.md-checkbox label > i:before,
+.md-checkbox label > span:after,
+.md-checkbox label > i:after,
+.md-radio label > span:before,
+.md-radio label > i:before,
+.md-radio label > span:after,
+.md-radio label > i:after {
+  position: absolute;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+.md-checkbox label > span:before,
+.md-checkbox label > i:before,
+.md-radio label > span:before,
+.md-radio label > i:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  top: 1px;
+  left: 0;
+  border-radius: 2px;
+  border: 2px solid #666;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+}
+.md-checkbox label > input:checked + span:before,
+.md-checkbox label > input:checked + i:before,
+.md-radio label > input:checked + span:before,
+.md-radio label > input:checked + i:before {
+  background: #ff4081;
+  border-color: #ff4081;
+}
+.md-checkbox label > input:checked + span:after,
+.md-checkbox label > input:checked + i:after,
+.md-radio label > input:checked + span:after,
+.md-radio label > input:checked + i:after {
+  content: "\f383";
+  font-family: 'ionicons';
+  left: 5px;
+  top: 1px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #fff;
+}
+.md-checkbox.md-primary label > input:checked + span:before,
+.md-radio.md-primary label > input:checked + span:before {
+  background: #3f51b5;
+  border-color: #3f51b5;
+}
+.md-checkbox.md-warn label > input:checked + span:before,
+.md-radio.md-warn label > input:checked + span:before {
+  background: #f44336;
+  border-color: #f44336;
+}
+.md-checkbox + .md-checkbox,
+.md-radio + .md-radio,
+.md-radio + .md-radio {
+  margin-top: -5px;
+}
+.md-checkbox label > input:checked[disabled] + span:before,
+.md-radio label > input:checked[disabled] + span:before {
+  border-color: #818181 !important;
+  background: #818181 !important;
+}
+/**
+ * Md Radio
+ * =================================
+ */
+.md-radio label.md-radio-inline {
+  margin-right: 8px;
+}
+.md-radio label > span:before,
+.md-radio label > i:before {
+  border-radius: 100%;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+.md-radio label > input:checked + span:before,
+.md-radio label > input:checked + i:before {
+  background: transparent!important;
+}
+.md-radio label > input:checked + span:after,
+.md-radio label > input:checked + i:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #ff4081;
+  top: 6px;
+  left: 4px;
+}
+.md-radio.md-primary label > input:checked + span:after {
+  background: #3f51b5;
+  border-color: #3f51b5;
+}
+.md-radio.md-warn label > input:checked + span:after {
+  background: #f44336;
+  border-color: #f44336;
+}
+.md-radio label > input:checked[disabled] + span:after {
+  border-color: #818181 !important;
+  background: #818181 !important;
+}
+/**
+ * Md Switches
+ * =======================
+ */
+.md-switch {
+  margin-bottom: 10px;
+}
+.md-switch label.md-switch-inline {
+  margin-right: 8px;
+}
+.md-switch label {
+  font-weight: normal;
+  cursor: -webkit-grab;
+  cursor: grab;
+  margin-bottom: 0;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  position: static;
+}
+.md-switch label > input {
+  display: none;
+}
+.md-switch label > input[disabled] + span,
+.md-switch label > input[readonly] + span,
+.md-switch label > input[disabled] + i,
+.md-switch label > input[readonly] + i {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.md-switch label > input + span,
+.md-switch label > input + i {
+  position: relative;
+  padding-left: 42px;
+  display: inline-block;
+}
+.md-switch label > input + span:before,
+.md-switch label > input + i:before,
+.md-switch label > input + span:after,
+.md-switch label > input + i:after {
+  content: "";
+  position: absolute;
+}
+.md-switch label > input + span:before,
+.md-switch label > input + i:before {
+  width: 34px;
+  height: 14px;
+  background-color: #9e9e9e;
+  border-radius: 8px;
+  pointer-events: none;
+  left: 0;
+  top: 4px;
+}
+.md-switch label > input + span:after,
+.md-switch label > input + i:after {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  outline: none;
+  border-radius: 50%;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  top: 1px;
+  left: -3px;
+}
+.md-switch label > input:checked + span:before,
+.md-switch label > input:checked + i:before {
+  background: rgba(255, 63, 129, 0.5);
+}
+.md-switch label > input:checked + span:after,
+.md-switch label > input:checked + i:after {
+  background-color: #ff3f81;
+  -webkit-transform: translate(100%, 0);
+  transform: translate(96%, 0);
+}
+.md-switch.md-primary label > input:checked + span:before {
+  background: rgba(63, 81, 181, 0.5);
+}
+.md-switch.md-primary label > input:checked + span:after {
+  background-color: #3f51b5;
+}
+.md-switch.md-warn label > input:checked + span:before {
+  background: rgba(244, 67, 54, 0.5);
+}
+.md-switch.md-warn label > input:checked + span:after {
+  background-color: #f44336;
+}
+.md-switch label > input[disabled] + span:after {
+  background: #818181 !important;
+}
+.md-switch label > input[disabled] + span:before {
+  background: #bdbdbd;
+}
+/** 
+ * Md Forms (inputs)
+ * =====================
+ */
+.md-input-container {
+  position: relative;
+  border: 1px solid transparent;
+  padding-bottom: 20px;
+}
+.md-input-container textarea,
+.md-input-container input {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+}
+.md-input-container input {
+  min-height: 26px;
+}
+.md-input-container textarea {
+  resize: none;
+  overflow: hidden;
+}
+.md-input-container textarea.md-input {
+  min-height: 56px;
+  -ms-flex-preferred-size: auto;
+}
+.md-input-container label {
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  opacity: .7;
+  font-size: 11px;
+}
+.md-input-container .md-input:focus {
+  box-shadow: inset 0 -1px 0 0 #303f9f;
+  border-color: #303F9F;
+}
+.md-input-container .md-input:focus + label {
+  color: #2a378b !important;
+  opacity: 1;
+}
+.md-input-container .md-input {
+  display: block;
+  width: 100%;
+  background: none;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-width: 0 0 1px 0;
+  line-height: 26px;
+  -ms-flex-preferred-size: 26px;
+  border-radius: 0;
+  transition: .25s;
+  -webkit-transition: .25s;
+  margin-top: 30px;
+  border-color: #efefef;
+}
+.md-input-container .md-input:focus {
+  outline: none;
+}
+.md-input-container .md-input[disabled] {
+  border-style: dotted;
+  border-color: #999;
+  opacity: .5;
+  cursor: not-allowed;
+}
+.md-input-container .md-input:invalid {
+  outline: none;
+  box-shadow: none;
+}
+.md-input-container .md-input .md-input[disabled],
+.md-input-container .md-input [disabled] .md-input-container .md-input {
+  background-position: 0 bottom;
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+}
+.md-input-container .md-char-counter {
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  font-size: 11px;
+  line-height: 24px;
+  right: 0;
+}
+/** float label */
+.md-input-container.md-float-label label {
+  font-size: 14px;
+  transform: translate(0, 100%);
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  opacity: .35;
+  transition: .25s;
+  -webkit-transition: .25s;
+}
+.md-input-container.md-float-label .md-input:focus + label {
+  font-size: 11px;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  opacity: .8;
+}

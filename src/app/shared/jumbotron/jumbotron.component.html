@@ -1,0 +1,18 @@
+<div class="row mt-5 m-top">
+    <!-- dashboard header -->
+    <div class="col-md-12">
+        <div class="dash-head clearfix mt15 mb20">
+            <div class="left">
+                <h4 class="mb5 text-light">Hola {{ user_name}},</h4>
+                <p class="small"><strong>Aqui puedes notificar, cada vez que envías un paquete al buzon:  "PR-{{user_n_buzon}}"</strong></p>
+            </div>
+            <div class="right">
+                <h4 class="mb5 text-light"></h4>
+                <button type="button" [routerLink]="[ '/add-package']"
+                class="btn btn-success btn-icon-inline waves-effect"><i class="fa fa-plus"></i>Añadir Paquete</button>
+            </div>
+            <div class="right mt10">
+            </div>
+        </div>
+    </div>
+</div> <!-- #end row -->

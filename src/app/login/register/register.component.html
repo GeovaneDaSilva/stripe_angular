@@ -1,0 +1,439 @@
+<body id="app" class="app off-canvas theme-zero nav-expand">
+	
+	<!-- header -->
+	<header class="site-head fixedHeader" id="site-head">
+		<ul class="list-unstyled left-elems">
+			<!-- nav trigger/collapse -->
+			<li>
+				<a href="javascript:;" class="nav-trigger ion ion-drag"></a>
+			</li>
+			<!-- #end nav-trigger -->
+
+			<!-- Search box -->
+
+
+			<!-- site-logo for mobile nav -->
+
+
+		</ul>
+
+		
+
+	</header>
+    <!-- #end header -->
+    
+
+	<!-- main-container -->
+	<div class="main-container clearfix nav-expand">
+		<!-- main-navigation -->
+		<aside class="nav-wrap nav-expand ps-container" id="site-nav" data-perfect-scrollbar="">
+			<div class="nav-head">
+				<!-- site logo -->
+				<a href="index.html" class="site-logo text-uppercase">
+					<img src="assets/images/house01.png" alt=""class="logo_img">
+				</a>
+			</div>
+
+			<!-- Site nav (vertical) -->
+
+			<nav class="site-nav clearfix" role="navigation">
+
+				<!-- navigation -->
+				<ul class="list-unstyled clearfix nav-list mb15">
+					
+					<li routerLinkActive="active">
+                        <a [routerLink]="['/login']">
+                            <i class="ion fa  fa-key"></i>
+                            <span class="text">Login</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a [routerLink]="['/register']">
+                            <i class="ion fa fa-user"></i>
+                            <span class="text">Registrar</span>
+                        </a>
+                    </li>
+                    
+				</ul> <!-- #end navigation -->
+			</nav>
+
+
+
+		<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></aside>
+		<!-- #end main-navigation -->
+
+		<!-- content-here -->
+		<div class="content-container nav-expand fixedHeader" id="content">
+			<!-- dashboard page -->
+			<div class="page page-dashboard">
+
+				<div class="page-wrap">
+
+					
+<div class="row">
+    <!-- dashboard header -->
+    <div class="col-md-12">
+        <div class="dash-head clearfix mt15 mb20">
+            <div class="left">
+                <h4 class="mb5 text-light">Bienvenido a SendToPuertoRico</h4>
+                <p class="small"><strong>Envie su paquete con nosotros</strong> Si ya tiene una cuenta, haga clic en <a [routerLink]="[ '/login']">login</a></p>
+            </div>
+            <div class="right">
+                <h4 class="mb5 text-light"></h4>
+                <button type="button" [routerLink]="[ '/login']"
+                class="btn btn-primary btn-icon-inline waves-effect"><i class="fa  fa-chevron-left"></i>Login</button>
+            </div>
+            <div class="right mt10">
+            </div>
+        </div>
+    </div>
+</div> <!-- #end row -->
+
+<div class="row">
+   <div class="col-md-6">
+
+    <div *ngIf="alert === false">
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div>Su informacion no es valida! <br>
+                Es posible que su correo electrónico ya exista en nuestra base de datos.</div>
+        </div>
+
+    </div>
+
+    <div *ngIf="confirmPass == true">
+
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div>Por favor revise su contraseña<p>
+            </p></div>
+        </div>
+
+    </div>
+
+    <div *ngIf="alert === true">
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div>Gracias por registrarse con Send To Puerto Rico, Su dirección asignada es: <p>
+                13461 NW 19 Lane <br>
+                Miami FL 33182 <br>
+                Es importante que el número de buzón se encuentre seguido del nombre para efectos de identificar el paquete.
+                Su número de buzón es: <b>{{this.userOk.n_buzon}}</b>
+            </p></div>
+        </div>
+
+    </div>
+
+    <form role="form" (ngSubmit)="saveUser( f.value )" #f="ngForm"
+     class="form-horizontal" action="javascript:;"> <!-- form horizontal acts as a row -->
+        <!-- normal control -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Nombre y Apellido</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.nombre" name="nombre" required
+                type="text" class="form-control">
+            </div>
+        </div>
+    
+        <!-- with hint -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Correo electrónico </label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+                type="text" class="form-control" placeholder="info@sendtopuertorico.com">
+            </div>
+        </div>
+        
+        <!-- passowrd control -->
+        <div class="form-group">
+            <label class="col-md-3 control-label">Teléfono </label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.phone" name="phone" required
+                type="number" class="form-control" placeholder="7879811421">
+            </div>
+        </div>
+         <!-- passowrd control -->
+         <div class="form-group">
+            <label class="col-md-3 control-label">Dirección Física</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.address" name="address" required
+                type="text" class="form-control" placeholder="Su dirección física">
+            </div>
+		</div>
+		<!-- passowrd control -->
+		<div class="form-group">
+            <label class="col-md-3 control-label">Contraseña</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.password" name="password" required
+                type="password" class="form-control" >
+            </div>
+        </div>
+	
+		<!-- passowrd control -->
+		<div class="form-group">
+            <label class="col-md-3 control-label">Confirmar Contraseña</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="user.confirmPassrowd" name="confirmPassrowd" required
+                type="password" class="form-control" >
+            </div>
+        </div>
+    
+    
+        
+        <div class="form-group">
+            <label class="col-md-3 control-label">Términos y Condiciones</label>
+            <div class="col-md-9">
+                <label class="ui-checkbox-inline text-confirm">
+                    <input [(ngModel)]="user.termino" name="termino" required
+                    type="checkbox" checked="" value="user.termino" data-toggle="modal" data-target="#staticBackdrop"> 
+                    <span> Confirmo haber leido los terminos y condiciones y acepto los mismos como condicion para obtener un casillero en Miami, FL a traves de Sendtopuertorico.com.</span>
+                </label>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="col-md-4">
+                <div class="btn-mobile">
+                    <button [disabled]="f.invalid"
+                     class="btn btn-success btn-int" type="submit" >Registrar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">TÉRMINOS Y CONDICIONES</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-justify">
+          <p><b>Estimado cliente, <br></b>
+            Gracias por registrarse, le damos la mas cordial bienvenida a nuestro exclusivo servicio SendtoPuertoRico.com Somos una empresa
+            de transporte de carga puertorriqueña con oficinas en Gurabo, sucursales en Hato Rey y Bayamón y pertenecemos al grupo
+             MultiPak Postal Service.
+            En orden de comenzar a ofrecer nuestros servicios a su número de buzón asignado en Miami, FL nuestros clientes deben de leer los
+            términos y condiciones del servicio. 
+            </p>
+            <p>1. Todos los envíos deben de ser de productos nuevos y los mismos deben de estar en su empaque original. Solo recibimos carga en
+                nuestro almacén de empresas de transporte autorizadas como FedEx, UPS, USPS, DHL, Amazon Logistics y/o alguna empresa
+                de transporte con numero de registro federal “USDOT”. En caso que necesite enviar un paquete o carga a nuestras facilidades y
+                vaya a ser entregada por un tercero no descrito anteriormente debe de coordinarlo con nuestra oficina previo a la entrega. 
+            </p>
+            <p>
+                2. No tenemos limite de peso o tamaño. Para cargas sobre 150 libras o sobre 10 pies de largo favor de coordinar con nuestra
+                oficina al 787-981-1421. En ocasiones estas cargas las enviamos directo a nuestras facilidades de Jacksonville y al igual
+                podemos ofrecer tarifas aún más competitivas.
+            </p>
+            <p>
+               3. Algunos materiales no se pueden transportar; Armas de fuego, productos flamantes, corrosivos, explosivos, algunos aceites o
+                cualquier otro producto o equipo que tenga una etiqueta que indique qué es considerado un material peligroso. Ciertas
+                condiciones aplican y excepciones. Todos los empaques considerados DG 0 HAZMAT conllevan cargos adicionales de manejo y
+                documentación. 
+            </p>
+            <p>
+                4. NO transportamos televisores de más de 42 pulgadas y en caso de hacer alguna excepción el transporte se hace bajo el propio
+                riesgo del cliente/consignatario. 
+            </p>
+            <p>
+                5. NO somos responsables por daños a embarques mal empacados o que no estén debidamente rotulados como frágiles, cristal,
+                líquidos. 
+            </p>
+            <p>
+                6. Los envíos desde Miami tienen un tiempo estimado de llegada de 10 días bajo condiciones normales de trafico terrestre y
+                marítimo. Este tiempo NO es garantizado. NO somos responsables por actos de fuerza mayor. En ocasiones algunos embarques
+                han tomado 15 días. Tome en cuenta los procesos de la empresa naviera, aduanas y el Departamento de Hacienda. 
+            </p>
+            <p>
+                7. NO somos responsables por mercancía que lleguen más tarde del tiempo estimado. Si usted tiene algún envío que tenga cierta
+                urgencia o lo necesita para una fecha en particular utilice nuestro servicio expreso llamando al 787-981-1421 o escriba a
+                info@sendtopuertorico.com
+            </p>
+            <p>
+                8. Al momento de recibir sus compras en nuestro terminal de Miami usted será notificado del recibo del mismo. En ese momento
+                nuestra empresa le enviara un correo electrónico con el aviso de llegada y la factura por los costos de acuerdo al peso y medidas
+                y la misma deberá de ser pagada para poder dar salida de sus compras hacia Puerto Rico. El pago lo podrá hacer vía ACH
+                bancario o utilizando alguna de las principales tarjetas de crédito. De tener algún inconveniente puede llamar a nuestra oficina al
+                787-981-1421. 
+            </p>
+            <p>
+                9. Una vez sus paquetes estén en Puerto Rico tiene 10 días para recoger los mismo. Una vez pasado los 10 días se aplicara un
+                cargo de almacenaje diario de $2.00 por paquete. Si a los 30 días no a recogido sus paquetes los mismo serán decomisados
+                sin mas comunicaciones. No habrá devolución de dinero ni reembolsos. Usted como cliente es responsable de dar seguimiento a
+                sus compras ya sea leyendo los correos electrónicos que nuestra empresa le emite, verificando las llamadas telefónicas o correo
+                de voz o mensajes de texto. 
+            </p>
+            <p>
+                10. Aceptamos cheques. Todo cheque debe ser pagadero a MultiPak Logistics LLC. 
+            </p>
+            <p>11. Cheques devueltos por cualquier razón tendrán un recargo de $50.00 .</p>
+            <p>12. Toda mercancía tiene un seguro con nuestra empresa por $100.00 máximo por guía “BOL”. De necesitar cobertura adicional a
+                los $100.00 deberá solicitar asegurar el mismo y ello conlleva un cargo adicional de $1.50 por cada $100.00 de valor declarado. 
+            </p>
+            <p>13. Podemos entregarle su mercancía si no desea recogerla por un cargo adicional en cualquier parte de Puerto Rico. Nuestra
+                empresa matriz tienes una flota de camiones y unidades de entrega “parcels” que cubre a Puerto Rico a diario a través de
+                MultiPak Postal Service. 
+            </p>
+            <p>
+                14. NO somos responsables por el pago de impuestos. Cada consignatario es responsable ante el fisco de declarar y pagar su
+                respectivo impuesto de acuerdo a la compra efectuada según la ley actual. Si su mercancía pago impuestos en origen debe de
+                tener su recibo de compra disponible en caso de una auditoria. Le recomendamos a los clientes estar registrados en el sistema
+                SURI en caso de ser necesario. 
+            </p>
+
+            <p>
+                15. Todo paquete que llega a nuestras facilidades estará sujeto a la inspección visual exterior e interior del mismo. Si algún paquete
+                lo encontramos sospechoso podemos retenerlo hasta tanto se investigue y sea declarado seguro para transportarse. 
+            </p>
+            <p>
+                16. SendToPuertoRico.com se reserva el derecho de admisión a nuestra red de transporte.
+            </p>
+            <p class="text-center"> <b>Jurisdicción </b></p>
+            <p>1. Los Términos y Condiciones aquí contenidos se regirán por las leyes del Estado Libre Asociado de
+                Puerto Rico. Cualquier controversia que surja con relación a la interpretación o puesta en vigor de
+                alguna de sus cláusulas se ventilará de forma exclusiva por el Tribunal de Primera Instancia de Puerto
+                Rico, Sala de San Juan. 
+            </p>
+            <p>2. El decreto de nulidad de alguno de los términos aquí enumerados por parte de un tribunal con
+                jurisdicción, no anulará las demás cláusulas, las cuales se mantendrán en pleno vigor. 
+            </p>
+            <p>3. Impuestos y aranceles siempre son por cuenta del consignatario. El consignatario debe de entender
+                y aceptar que las agencias federales y/o estatales pueden detener cualquier envío para inspección en
+                cualquier momento y todos los cargos relacionados son pagaderos por el consignatario o solicitante de
+                la mercancía. 
+            </p>
+            <p>4. No transportamos ningún tipo de material con clasificación peligrosa, drogas legales o ilegales,
+                armas de fuego legales o ilegales, ningún tipo de explosivo, ningún contrabando. 
+            </p>
+            <p>5. Toda mercancía está sujeta a inspección física, visual, rayos-x, por nuestros proveedores de
+                transportación en cualquier momento. 
+            </p>
+            <p>6. Nos reservamos el derecho de rechazar cualquier mercancía si consideramos alguna sospecha de
+                cualquier índole
+            </p>
+            <p>7. Estos Términos y Condiciones, junto con las comunicaciones intercambiadas por correo electrónico
+                constituyen la totalidad de los acuerdos y obligaciones entre las partes. 
+            </p>
+            <p class="text-center"> <b>Seguros  </b></p>
+            <p>Los envíos del usuario NO están asegurados en su totalidad si cuestan más de $100.00 durante el trayecto
+                desde los almacenes en Miami, Florida hasta su dirección en Puerto Rico. Nuestra responsabilidad estará
+                limitada a $100.00 por envió o transacción recibida. Por lo cual, de necesitar un seguro para su paquete
+                deberá así solicitarlo en la sección de “Comentarios” en el encasillado del Registro. En dicha
+                eventualidad, se le proveerán las opciones disponibles. En su defecto, el usuario expresamente releva a
+                SendtoPuertoRico.com de toda responsabilidad por cualquier daño o pérdida ocurrida durante el envío de
+                la mercancía de Miami a Puerto Rico. 
+            </p>
+
+            <p class="text-center"> <b>Privacidad  </b></p>
+            <p>SendtoPuertoRico.com mantendrá la más alta confidencialidad relacionada a la información personal del
+                usuario, y sólo utilizará la información ofrecida por el usuario para fines relacionados al servicio que se
+                haya solicitado. 
+            </p>
+            <br>
+            <br>
+             <p> Será responsabilidad del usuario informar cualquier cambio de dirección electrónica donde desea recibir
+                las comunicaciones enviadas por SendtoPuertoRico.com.
+            </p>
+            <p class="text-center"> <b>CLAUSULA SOBRE PAQUETES Y CORREOS NO SOLICITADOS Y TIEMPOS DE ENTREGA  </b></p>
+            <br>
+            <p>1. Material no solicitado:
+                En sendtopuertorico.com entendemos que puede haber casos donde suplidores envían material promocional o de mercadeo no solicitado.  Siendo el caso,  usted como cliente deberá escribirnos indicando que si autoriza el envió a Puerto Rico de dicho material y que asume el costo de este basado en nuestras tarifas publicadas. 
+            </p>
+            <p>Ya habiendo recibido dicha comunicación es su deber pagar el flete y recibir su mercancía o materiales de forma expedita una vez se le notifique que esta disponible en Puerto Rico.
+            </p>
+            <p>De usted como cliente no enviar una autorización escrita, todo material de mercadeo, promocional o no solicitado será decomisado de inmediato.  Esto se refieres a paquetes de mercadeo, correo de cualquier tipo, piezas de ejemplo y otros.  
+            </p>
+            <p>
+               2. Devoluciones:
+    
+    Las devoluciones solo se harán y en excepciones en forma de rechazo si el producto o la caja de empaque presenta serios danos en el manejo.   NO hacemos devoluciones en ninguna otra circunstancia.  Cada cliente viene obligado a pagar el flete de servicio y por su cuenta hacer la devolución que le parezca de el o los productos.   Todo cliente debe tener presente que nuestra empresa recibe los paquetes en representación y a nombre de los clientes. 
+    
+            </p>
+
+            <p>Si una vez recibido el paquete el cliente desea hacer una devolución desde Miami o Jacksonville tiene que pagar por todos los gastos de manejo y franqueo.  Las devoluciones no son y  nunca serán gratis. </p>
+            <p>3. Cancelación de cuenta:
+
+                Clientes que tengan balances pendientes por mas de 90 días o que tengan mercancía por mas de 90 días en nuestras facilidades sin pagar su cuenta la misma será cancelada, sus paquetes decomisados y no disfrutará mas privilegios de utilizar ninguno de los servicios que nuestra firma provee. 
+            </p>
+            <p>4. ETA – Tiempo de transito estimado:
+                
+                Si usted tiene algún apresuramiento en recibir su(s) paquete(s) no envié sus cargas a través de sendtopuertorico.com.   El tiempo estimado es de 10 días hábiles y puede variar de acuerdo con las variantes que confrontamos en carreteras, mar y con las distintas oficinas de gobierno.  Para servicio expresos llame a nuestro numero 787-981-1421, 786-300-5534, 787-690-9953 para solicitar servicio aéreo de carga, correo o FedEx.   Todo servicio será cotizado de acuerdo con las tarifas vigentes. 
+             </p>
+             <p>5. Inconformidad con el servicio:
+
+                Clientes con alguna inconformidad con nuestro servicio le solicitamos que escriban a jnieves@mpostal.com con su comentario y como podemos hacerlo mejor.  Al igual indique que hicimos mal a su entender para crear la inconformidad. Es probable que le demos un crédito parcial o un 100% de acuerdo el caso.  No obstante, es importante que los clientes lean todas las clausulas y condiciones que gobiernan este servicio especializado de manejo de carga. 
+            </p>
+
+            <p class="text-center text-justify-center"><b>Calle Calaf 400 - Hato Rey, San Juan, Puerto Rico 00918
+                T. (787) 704 - 0488 F. (787) 625 - 0135
+                sendtopuertorico.com</b> 
+            </p>
+
+            
+
+
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </form>
+   </div>
+
+   
+
+
+   <div class="col-md-3 text-confirm">
+    <p class="text-danger">Si su número de buzon está entre 7000 - 9721, solicite su acceso <a class="text-white" href="mailto:support@labnetworks.com">aqui.</a>
+        No se registre nuevamente si tiene una cuenta.</p>
+   </div>
+</div>
+
+
+
+
+				</div> <!-- #end page-wrap -->
+			</div>
+			<!-- #end dashboard page -->
+		</div>
+
+	</div> <!-- #end main-container -->
+
+	<!-- #end theme settings -->
+
+
+	
+
+	<!-- Dev only -->
+	<!-- Vendors -->
+	<script src="scripts/vendors.js"></script>
+	<script src="scripts/plugins/d3.min.js"></script>
+	<script src="scripts/plugins/c3.min.js"></script>
+	<script src="scripts/plugins/screenfull.js"></script>
+	<script src="scripts/plugins/perfect-scrollbar.min.js"></script>
+	<script src="scripts/plugins/waves.min.js"></script>
+	<script src="scripts/plugins/jquery.sparkline.min.js"></script>
+	<script src="scripts/plugins/jquery.easypiechart.min.js"></script>
+	<script src="scripts/plugins/bootstrap-rating.min.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/index.init.js"></script>
+
+
+</body>

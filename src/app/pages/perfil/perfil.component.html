@@ -1,0 +1,61 @@
+    <form (ngSubmit)="updatePerfil( f )" #f="ngForm">
+        <div class="col-md-5 pt-5 mt-50">
+
+        <div class="form-group">
+          <h4>Numero de Buzon: <span class="text-info">PR-{{user.n_buzon}}</span></h4>
+        </div>
+        <div class="form-group">
+          <label >Nombre</label>
+          <input [(ngModel)]="user.nombre" name="nombre" required
+          type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input [(ngModel)]="user.email" name="email" required disabled
+          type="email" class="form-control" id="exampleInputPassword1">
+        </div>
+        
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input  [(ngModel)]="user.phone" name="phone" required
+            type="text" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="form-group">
+            <label>Dirección Física</label>
+            <input  [(ngModel)]="user.address" name="address"
+            type="text" class="form-control" id="exampleInputPassword1">
+          </div>
+
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-5">
+            <img [src]="this.user.img | imagen" alt="admin-pic" class="m-top img-perfil">
+            <div class="form-group m-top">
+              <input type="file" class="btn btn-primary bt" (change)="onFileSelected($event)">
+               <a (click)="upload()" class="btn btn-success bt-archive">Enviar</a>
+
+              <div *ngIf="alert === true">
+                <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  <div>Informacion actualizada!!!</div>
+                </div>
+        
+              </div>
+              
+            </div>
+            
+
+    </div>
+    
+      </form>
+
+
+      

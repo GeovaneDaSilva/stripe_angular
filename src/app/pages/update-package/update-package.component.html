@@ -1,0 +1,94 @@
+<div class="row">
+    <!-- dashboard header -->
+    <div class="col-md-12">
+        <div class="dash-head clearfix mt15 mb20">
+            <div class="left">
+                <h4 class="text-uppercase">Nuevo paquete esperado  <span class="text-info"></span></h4>
+            </div>
+            <div class="right">
+                <h4 class="mb5 text-light"></h4>
+                <button type="button" [routerLink]="[ '/dashboard']"
+                class="btn btn-primary btn-icon-inline waves-effect"><i class="fa  fa-chevron-left"></i>Regresar</button>
+            </div>
+            <div class="right mt10">
+            </div>
+        </div>
+    </div>
+</div> <!-- #end row -->
+
+<div *ngIf="alert === false">
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div>error al guardar info!</div>
+  </div>
+
+</div>
+
+<div *ngIf="alert === true">
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div>Se actualizó correctamente</div>
+  </div>
+
+</div>
+
+<form (ngSubmit)="savePackage( f.value )" #f="ngForm">
+    <div class="col-md-8 pt-5 mt-50">
+    
+      <div class="form-group">
+        <label>Estatus del paquete </label>
+        <select class="form-control form-control-lg" [(ngModel)]="paquete.status" name="status" required>
+            <option  *ngFor="let optEntrega of optEntrega" [value]="optEntrega.status">{{optEntrega.status}}</option>
+          </select>
+      </div>
+
+
+
+
+
+    
+ <label for="incomingpackage.customerlabel" class="m-top">Tus notas</label>
+ <textarea [(ngModel)]="paquete.nota" name="nota" placeholder="maximo 500 caracteres"
+  class="form-control" maxlength="500"></textarea>
+
+
+<div class="m-top">
+    <button [disabled]="f.invalid"
+     type="button" class="btn btn-success" data-toggle="modal" href="#exampleModalCenter"><i class=" fa fa-save"></i>  Actualizar</button>
+
+</div> 
+
+
+ <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                          <h2> 
+                            ¿Estás seguro que quieres actualizar?</h2> 
+                            <h4 class="text-center ml-5">No podrás revertir esto.</h4>            
+                            </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"  [routerLink]="['/packages']">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Actualizar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+</div>
+
+  </form>
+
+  
+
+  

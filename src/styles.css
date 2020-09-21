@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+.logo_img {
+    width: 25px;
+}
+
+.site-logo{
+    font-size: 15px !important;
+}
+.logo_login{
+    width: 50%;
+}
+
+.bg_login {
+    background-image: url("./assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.m-top {
+    margin-top: 20px;
+}
+.img-perfil{
+    width: 25% !important;
+    margin-left: 25px !important;
+}
+.bt{
+    width: 40% !important;
+}
+.bt-archive{
+    width: 40% !important;
+}
+
+.text-address {
+    color: antiquewhite;
+}
+
+.info1 {
+    margin-left: 50px !important;
+}
+
+.fa-map-marker {
+    font-size: 20px;
+}
+
+.fa-wechat , .fa-clock-o, .fa-send-o, .fa-home {
+    font-size: 20px !important;
+}
+
+.control-label {
+    margin-bottom:  7px !important;
+}
+
+.bg-color-white {
+    background-color: rgb(252, 252, 252);
+}
+
+.btn-form {
+    margin-left: 150px !important;
+
+
+}
+
+@media (max-width: 1200px) {
+    .btn-mobile {
+      font-size: 20px !important;
+      margin-bottom: 20px !important;
+
+
+    }
+    .text-confirm{
+        font-size: 13px;
+    }
+    .btn-int{
+        padding-left: 30% !important;
+        padding-right: 30% !important;  
+    }
+  }
+
+  .label-color_send {
+      background-color: #f96500
+  }

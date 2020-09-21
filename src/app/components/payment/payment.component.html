@@ -1,0 +1,91 @@
+<div class="col-md-12">
+  <div class="panel panel-lined table-responsive panel-hovered mb20 data-table" style="padding-bottom: 20px">
+    <div class="panel-heading">Mis Paquetes</div>
+    <div class="panel-body">
+
+      <form class="form-horizontal right col-lg-4" action="javascript:;">
+        <input type="text" class="form-control input-sm searchInput" placeholder="Type keyword">
+      </form>
+    </div>
+  <!-- data table -->
+  <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><table class="table table-bordered table-striped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+    <thead>
+      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+          Rendering Engine
+          
+            
+            
+          
+        : activate to sort column descending" style="width: 357px;">
+        Descripción
+          <div class="th">
+            <i class="fa fa-caret-up icon-up"></i>
+            <i class="fa fa-caret-down icon-down"></i>
+          </div>
+        </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+          Browser
+          
+            
+            
+          
+        : activate to sort column ascending" style="width: 213px;">
+          Vendedor
+          <div class="th">
+            <i class="fa fa-caret-up icon-up"></i>
+            <i class="fa fa-caret-down icon-down"></i>
+          </div>
+        </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+          Platform(s)
+          
+            
+            
+          
+        : activate to sort column ascending" style="width: 254px;">
+          Facilidad / Recoger
+          <div class="th">
+            <i class="fa fa-caret-up icon-up"></i>
+            <i class="fa fa-caret-down icon-down"></i>
+          </div>
+        </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+          Engine Version
+          
+            
+            
+          
+        : activate to sort column ascending" style="width: 315px;">
+          Nota
+          <div class="th">
+            <i class="fa fa-caret-up icon-up"></i>
+            <i class="fa fa-caret-down icon-down"></i>
+          </div>
+        </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+          CSS Grade
+          
+            
+            
+          
+        : activate to sort column ascending" style="width: 200px;">
+        Ver y Pagar
+        <div class="th">
+            <i class="fa fa-caret-up icon-up"></i>
+            <i class="fa fa-caret-down icon-down"></i>
+          </div>
+        </th></tr>
+    </thead>
+    <tbody>
+      <!-- data initialize via script, can also be load via ajax -->
+    <tr role="row" class="odd" *ngFor="let package of userPackages">
+      <td class="sorting_1">{{package.description}}</td>
+      <td>{{package.saller}}</td>
+      <td>{{package.store}}</td>
+      <td>{{package.nota}}</td>
+      <td>
+        <button type="submit" class="btn btn-primary" [routerLink]="['/payment-checkout', package._id]"><i class="fa fa-eye"></i> Ver mas</button>
+      </td>
+    </tr>
+  </table>  <!-- #end data table -->	
+  
+</div>
+</div>
+
+
